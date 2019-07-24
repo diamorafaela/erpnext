@@ -228,6 +228,7 @@ class Subscription(Document):
 		"""
 		invoice = self.create_invoice(prorate)
 		self.append('invoices', {'invoice': invoice.name})
+		self.update_subscription_period()
 		self.save()
 
 		return invoice
@@ -240,6 +241,7 @@ class Subscription(Document):
 		invoice.set_posting_time = 1
 		invoice.posting_date = self.current_invoice_start
 		invoice.customer = self.customer
+		invoice.subscription = self.name
 
 		# Subscription is better suited for service items. I won't update `update_stock`
 		# for that reason
@@ -256,7 +258,7 @@ class Subscription(Document):
 		invoice.append(
 			'payment_schedule',
 			{
-				'due_date': add_days(self.current_invoice_end, cint(self.days_until_due)),
+				'due_date': add_days(invoice.posting_date, cint(self.days_until_due)),
 				'invoice_portion': 100
 			}
 		)
@@ -311,13 +313,16 @@ class Subscription(Document):
 			self.process_for_active()
 		elif self.status in ['Past Due Date', 'Unpaid']:
 			self.process_for_past_due_date()
+		elif self.status == "Trialling":
+			self.process_for_trialling()
 
 		self.save()
 
 	def is_postpaid_to_invoice(self):
-		return getdate(nowdate()) > getdate(self.current_invoice_end) or \
-			(getdate(nowdate()) >= getdate(self.current_invoice_end) and getdate(self.current_invoice_end) == getdate(self.current_invoice_start)) and \
-			not self.has_outstanding_invoice()
+		if self.generate_invoice_at_period_start:
+			return False
+
+		return getdate(nowdate()) > getdate(self.current_invoice_end)
 
 	def is_prepaid_to_invoice(self):
 		if not self.generate_invoice_at_period_start:
@@ -326,8 +331,18 @@ class Subscription(Document):
 		if self.is_new_subscription():
 			return True
 
-		# Check invoice dates and make sure it doesn't have outstanding invoices
-		return getdate(nowdate()) >= getdate(self.current_invoice_start) and not self.has_outstanding_invoice()
+		if getdate(nowdate()) > getdate(self.current_invoice_end):
+			self.update_subscription_period()
+			return True
+
+	def process_for_trialling(self):
+		if not self.is_trialling():
+			self.status = 'Active'
+		self.set_subscription_status()
+		self.save()
+		if self.status != "Trialling":
+			self.update_subscription_period()
+			self.process()
 
 	def process_for_active(self):
 		"""
@@ -338,16 +353,16 @@ class Subscription(Document):
 		2. Change the `Subscription` status to 'Past Due Date'
 		3. Change the `Subscription` status to 'Cancelled'
 		"""
-		if self.is_postpaid_to_invoice() or self.is_prepaid_to_invoice():
-			self.generate_invoice()
-			if self.current_invoice_is_past_due():
-				self.status = 'Past Due Date'
+		if self.cancel_at_period_end and getdate(nowdate()) > getdate(self.current_invoice_end):
+			self.cancel_subscription_at_period_end()
 
 		if self.current_invoice_is_past_due() and getdate(nowdate()) > getdate(self.current_invoice_end):
 			self.status = 'Past Due Date'
 
-		if self.cancel_at_period_end and getdate(nowdate()) > getdate(self.current_invoice_end):
-			self.cancel_subscription_at_period_end()
+		if self.is_postpaid_to_invoice() or self.is_prepaid_to_invoice():
+			self.generate_invoice()
+			if self.current_invoice_is_past_due():
+				self.status = 'Past Due Date'
 
 	def cancel_subscription_at_period_end(self):
 		"""
