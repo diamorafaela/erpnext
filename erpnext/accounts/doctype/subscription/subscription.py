@@ -328,9 +328,6 @@ class Subscription(Document):
 		if not self.generate_invoice_at_period_start:
 			return False
 
-		if self.is_new_subscription():
-			return True
-
 		if self.status == 'Cancelled':
 			return False
 
