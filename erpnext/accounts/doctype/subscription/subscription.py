@@ -309,10 +309,9 @@ class Subscription(Document):
 		1. `process_for_active`
 		2. `process_for_past_due`
 		"""
-		old_status = self.status
 		if self.cancel_at_period_end and getdate(nowdate()) > getdate(self.current_invoice_end):
 			self.cancel_subscription_at_period_end()
-		if 'Active' in [old_status, self.status]:
+		if 'Active' == self.status:
 			self.process_for_active()
 		elif self.status in ['Past Due Date', 'Unpaid']:
 			self.process_for_past_due_date()
@@ -359,9 +358,6 @@ class Subscription(Document):
 		2. Change the `Subscription` status to 'Past Due Date'
 		3. Change the `Subscription` status to 'Cancelled'
 		"""
-		if self.cancel_at_period_end and getdate(nowdate()) > getdate(self.current_invoice_end):
-			self.cancel_subscription_at_period_end()
-
 		if self.current_invoice_is_past_due() and getdate(nowdate()) > getdate(self.current_invoice_end):
 			self.status = 'Past Due Date'
 
@@ -370,13 +366,20 @@ class Subscription(Document):
 			if self.current_invoice_is_past_due():
 				self.status = 'Past Due Date'
 
+	def process_for_active_canceled(self):
+		if self.is_postpaid_to_invoice():
+			self.generate_invoice()
+
 	def cancel_subscription_at_period_end(self):
 		"""
 		Called when `Subscription.cancel_at_period_end` is truthy
 		"""
+		if self.status == "Active":
+			self.process_for_active_canceled()
 		self.status = 'Cancelled'
 		if not self.cancelation_date:
 			self.cancelation_date = nowdate()
+
 
 	def process_for_past_due_date(self):
 		"""
