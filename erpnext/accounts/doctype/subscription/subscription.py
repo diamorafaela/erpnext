@@ -309,11 +309,14 @@ class Subscription(Document):
 		1. `process_for_active`
 		2. `process_for_past_due`
 		"""
-		if self.status == 'Active':
+		old_status = self.status
+		if self.cancel_at_period_end and getdate(nowdate()) > getdate(self.current_invoice_end):
+			self.cancel_subscription_at_period_end()
+		if 'Active' in [old_status, self.status]:
 			self.process_for_active()
 		elif self.status in ['Past Due Date', 'Unpaid']:
 			self.process_for_past_due_date()
-		elif self.status == "Trialling":
+		elif "Trialling" == self.status:
 			self.process_for_trialling()
 
 		self.save()
