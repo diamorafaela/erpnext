@@ -149,7 +149,9 @@ def update_bin_qty(item_code, warehouse, qty_dict=None):
 
 	if mismatch:
 		bin.set_projected_qty()
-		bin.db_update()
+		self.run_method('before_change')
+		self.db_update()
+		self.run_method('on_change')
 		bin.clear_cache()
 
 def set_stock_balance_as_per_serial_no(item_code=None, posting_date=None, posting_time=None,
