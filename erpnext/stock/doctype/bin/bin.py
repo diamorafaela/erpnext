@@ -15,11 +15,7 @@ class Bin(Document):
 
 	def update_stock(self, args, allow_negative_stock=False, via_landed_cost_voucher=False):
 		'''Called from erpnext.stock.utils.update_bin'''
-		self.run_method('before_change')
-
 		self.update_qty(args)
-
-		self.run_method('on_change')
 		
 		if args.get("actual_qty") or args.get("voucher_type") == "Stock Reconciliation":
 			from erpnext.stock.stock_ledger import update_entries_after
@@ -52,7 +48,9 @@ class Bin(Document):
 		self.planned_qty = flt(self.planned_qty) + flt(args.get("planned_qty"))
 
 		self.set_projected_qty()
+		self.run_method('before_change')
 		self.db_update()
+		self.run_method('on_change')
 
 	def set_projected_qty(self):
 		self.projected_qty = (flt(self.actual_qty) + flt(self.ordered_qty)
