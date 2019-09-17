@@ -144,7 +144,7 @@ class Subscription(Document):
 
         if self.status in ['Past Due Date', 'Unpaid'] and not self.has_outstanding_invoice():
             if self.status == 'Unpaid' or not self.invoices_in_past_due_date:
-                self.update_subscription_period(add_days(self.current_invoice_end, 1))
+                self.set_previous_period()
             self.status = 'Active'
 
         if self.status == 'Past Due Date' and self.is_past_grace_period():
@@ -152,6 +152,20 @@ class Subscription(Document):
             self.status = 'Cancelled' if cint(subscription_settings.cancel_after_grace) else 'Unpaid'
 
         self.save()
+
+    def set_previous_period(self):
+        billing_cycle_info = self.get_negative_billing_cycle()
+        if billing_cycle_info:
+            self.current_invoice_end = add_to_date(self.current_invoice_start, **billing_cycle_info)
+        else:
+            self.current_invoice_end = add_days(self.current_invoice_end, -1)
+        self.current_invoice_end = add_days(self.current_invoice_end, -1)
+
+    def get_negative_billing_cycle(self):
+        billing_cycle_info = self.get_billing_cycle_data()
+        for k in billing_cycle_info.keys():
+            billing_cycle_info[k] = billing_cycle_info[k] * -1
+        return billing_cycle_info
 
     def is_trialling(self):
         """
@@ -256,7 +270,7 @@ class Subscription(Document):
         """
         invoice = frappe.new_doc('Sales Invoice')
         invoice.set_posting_time = 1
-        invoice.posting_date = self.current_invoice_start
+        invoice.posting_date = nowdate()
         invoice.customer = self.customer
         invoice.subscription = self.name
 
@@ -413,8 +427,12 @@ class Subscription(Document):
         """
         if self.status != 'Cancelled':
             to_generate_invoice = False
-            if not self.generate_invoice_at_period_start and self.status == 'Active':
-                to_generate_invoice = True
+            if not self.generate_invoice_at_period_start:
+                if self.status == 'Active':
+                    to_generate_invoice = True
+                elif self.status == 'Past Due Date' and self.invoices_in_past_due_date:
+                    to_generate_invoice = True
+
             to_prorate = frappe.db.get_single_value('Subscription Settings', 'prorate')
             self.status = 'Cancelled'
             self.cancelation_date = nowdate()
