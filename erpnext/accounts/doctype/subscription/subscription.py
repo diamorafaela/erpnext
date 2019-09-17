@@ -411,7 +411,7 @@ class Subscription(Document):
             self.cancelation_date = nowdate()
 
     def has_outstanding_invoice(self):
-        return frappe.db.get_values("Sales Invoice", {"subscription": self.name, "status": ["!=", "Paid"]}, as_dict=1)
+        return frappe.db.get_values("Sales Invoice", {"subscription": self.name, "status": ["!=", "Paid"], "docstatus": 1}, as_dict=1)
 
     @staticmethod
     def is_not_outstanding(invoice):
