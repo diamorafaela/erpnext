@@ -142,9 +142,12 @@ class Subscription(Document):
         if self.has_past_due_invoices():
             self.status = 'Past Due Date'
 
-        if self.status in ['Past Due Date', 'Unpaid'] and not self.has_outstanding_invoice():
+        if self.status in ['Past Due Date', 'Unpaid'] and not self.has_past_due_invoices():
             if self.status == 'Unpaid' or not self.invoices_in_past_due_date:
-                self.set_previous_period()
+                if self.generate_invoice_at_period_start:
+                    self.set_previous_period()
+                else:
+                    self.update_subscription_period()
             self.status = 'Active'
 
         if self.status == 'Past Due Date' and self.is_past_grace_period():
@@ -155,11 +158,11 @@ class Subscription(Document):
 
     def set_previous_period(self):
         billing_cycle_info = self.get_negative_billing_cycle()
+        self.current_invoice_end = add_days(getdate(nowdate()), -1)
         if billing_cycle_info:
-            self.current_invoice_end = add_to_date(self.current_invoice_start, **billing_cycle_info)
+            self.current_invoice_start = add_to_date(self.current_invoice_end, **billing_cycle_info)
         else:
-            self.current_invoice_end = add_days(self.current_invoice_end, -1)
-        self.current_invoice_end = add_days(self.current_invoice_end, -1)
+            self.current_invoice_start = add_days(self.current_invoice_end, -1)
 
     def get_negative_billing_cycle(self):
         billing_cycle_info = self.get_billing_cycle_data()
