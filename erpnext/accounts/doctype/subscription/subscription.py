@@ -312,6 +312,7 @@ class Subscription(Document):
         invoice.from_date = self.current_invoice_start
         invoice.to_date = self.current_invoice_end
 
+        invoice.set_missing_values()
         invoice.flags.ignore_mandatory = True
         invoice.save()
         invoice.submit()
