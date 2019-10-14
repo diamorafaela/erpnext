@@ -369,7 +369,7 @@ class Subscription(Document):
         if self.status == 'Cancelled':
             return False
 
-        if self.is_new_subscription():
+        if self.is_new_subscription() and getdate(nowdate()) >= getdate(self.current_invoice_start):
             return True
 
         if getdate(nowdate()) > getdate(self.current_invoice_end):
