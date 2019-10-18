@@ -132,7 +132,7 @@ class Subscription(Document):
         if self.is_trialling():
             self.status = 'Trialling'
 
-        if self.is_new_subscription():
+        if self.is_new_subscription() and not self.is_trialling():
             self.status = 'Active'
 
         if self.status == 'Trialling' and not self.is_trialling():
