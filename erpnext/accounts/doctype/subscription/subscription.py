@@ -129,6 +129,7 @@ class Subscription(Document):
         """
         Sets the status of the `Subscription`
         """
+        # The order of this checks is important!!!
         if self.is_trialling():
             self.status = 'Trialling'
 
@@ -363,6 +364,7 @@ class Subscription(Document):
         return getdate(nowdate()) > getdate(self.current_invoice_end)
 
     def is_prepaid_to_invoice(self):
+        # The order of this checks is important!!!
         if not self.generate_invoice_at_period_start:
             return False
 
