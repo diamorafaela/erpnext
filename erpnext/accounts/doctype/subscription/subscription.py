@@ -132,12 +132,12 @@ class Subscription(Document):
         if self.is_trialling():
             self.status = 'Trialling'
 
-        if self.is_new_subscription() and not self.is_trialling():
-            self.status = 'Active'
-
         if self.status == 'Trialling' and not self.is_trialling():
             self.status = 'Active'
             self.update_subscription_period(add_days(self.trial_period_end or nowdate(), 1))
+
+        if self.is_new_subscription() and not self.is_trialling():
+            self.status = 'Active'
 
         if self.has_past_due_invoices():
             self.status = 'Past Due Date'
@@ -369,11 +369,11 @@ class Subscription(Document):
         if self.status == 'Cancelled':
             return False
 
-        if self.is_new_subscription() and getdate(nowdate()) >= getdate(self.current_invoice_start):
-            return True
-
         if getdate(nowdate()) > getdate(self.current_invoice_end):
             self.update_subscription_period(add_days(self.current_invoice_end, 1))
+            return True
+
+        if self.is_new_subscription() and getdate(nowdate()) >= getdate(self.current_invoice_start):
             return True
 
     def process_for_active(self):
