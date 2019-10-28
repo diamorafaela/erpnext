@@ -454,10 +454,24 @@ class Subscription(Document):
         """
         if self.status == 'Cancelled':
             self.status = 'Active'
+            self.set_subscription_status()
             # self.db_set('start', nowdate())
             self.update_subscription_period(nowdate())
             # self.invoices = []
             self.save()
+
+            to_generate_invoice = False
+            if self.generate_invoice_at_period_start:
+                if self.status == 'Active':
+                    to_generate_invoice = True
+                elif self.status == 'Past Due Date' and self.invoices_in_past_due_date:
+                    to_generate_invoice = True
+
+            if to_generate_invoice:
+                self.generate_invoice()
+                if self.has_past_due_invoices():
+                    self.status = 'Past Due Date'
+                self.save()
         else:
             frappe.throw(_('You cannot restart a Subscription that is not cancelled.'))
 
