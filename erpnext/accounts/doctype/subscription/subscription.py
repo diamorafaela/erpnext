@@ -454,9 +454,9 @@ class Subscription(Document):
         """
         if self.status == 'Cancelled':
             self.status = 'Active'
-            self.db_set('start', nowdate())
+            # self.db_set('start', nowdate())
             self.update_subscription_period(nowdate())
-            self.invoices = []
+            # self.invoices = []
             self.save()
         else:
             frappe.throw(_('You cannot restart a Subscription that is not cancelled.'))
