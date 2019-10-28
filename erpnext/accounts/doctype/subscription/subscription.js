@@ -45,7 +45,7 @@ frappe.ui.form.on('Subscription', {
 	renew_this_subscription: function(frm) {
 		const doc = frm.doc;
 		frappe.confirm(
-			__('You will lose records of previously generated invoices. Are you sure you want to restart this subscription?'),
+			__('Are you sure you want to restart this subscription?'),
 			function() {
 				frappe.call({
 					method:
