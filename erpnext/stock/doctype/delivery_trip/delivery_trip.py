@@ -143,7 +143,32 @@ class DeliveryTrip(Document):
 			else:
 				idx += len(route) - 1
 
+		self.generate_route()
+
 		self.save()
+
+	def generate_route(self):
+		import requests
+		import json
+		geo_list = []
+		for direc in self.delivery_stops:
+			geo_list.append("{},{}".format(str(direc.lat), str(direc.lng)))
+
+		webservice = "http://router.project-osrm.org/route/v1/driving/{coord}"
+		try:
+			res = requests.get(webservice.format(coord=";".join(geo_list)), params={"alternatives": False, "geometries": "geojson"})
+			if res.status_code != 200:
+				self.route = '{"type":"FeatureCollection","features":[]}'
+			else:
+				res = res.json()
+				result_route = res.get("routes", [{}])[0].get("geometry", {})
+				to_jsonify = {
+					"type": "Feature",
+					"geometry": result_route
+				}
+				self.route = json.dumps(to_jsonify)
+		except Exception:
+			self.route = '{"type":"FeatureCollection","features":[]}'
 
 	def form_route_list(self, optimize):
 		"""
