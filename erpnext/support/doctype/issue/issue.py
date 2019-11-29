@@ -99,8 +99,8 @@ class Issue(Document):
 			doc.save(ignore_permissions=True)
 
 		frappe.get_doc({
-			"doctype": "Comment",
-			"comment_type": "Info",
+			"doctype": "Communication",
+			"comment_type": "Comment",
 			"reference_doctype": "Issue",
 			"reference_name": replicated_issue.name,
 			"content": " - Split the Issue from <a href='#Form/Issue/{0}'>{1}</a>".format(self.name, frappe.bold(self.name))
