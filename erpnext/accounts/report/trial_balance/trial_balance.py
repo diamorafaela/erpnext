@@ -175,6 +175,11 @@ def calculate_values(accounts, gl_entries_by_account, opening_balances, filters,
 
 		d["closing_debit"] = d["opening_debit"] + d["debit"]
 		d["closing_credit"] = d["opening_credit"] + d["credit"]
+
+		if filters.not_include_opens_in_colses:
+			d["closing_debit"] -= d["opening_debit"]
+			d["closing_credit"] -= d["opening_credit"]
+
 		total_row["debit"] += d["debit"]
 		total_row["credit"] += d["credit"]
 
