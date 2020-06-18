@@ -10,4 +10,5 @@ def execute(filters=None):
 		"party_type": "Supplier",
 		"naming_by": ["Buying Settings", "supp_master_name"],
 	}
+	filters['show_future_payments'] = True
 	return ReceivablePayableReport(filters).run(args)
