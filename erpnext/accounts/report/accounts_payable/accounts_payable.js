@@ -90,7 +90,12 @@ frappe.query_reports["Accounts Payable"] = {
 			"label": __("Tax Id"),
 			"fieldtype": "Data",
 			"hidden": 1
-		}
+		},
+		{
+			"fieldname":"show_future_payments",
+			"label": __("Mostrar pagos futuros"),
+			"fieldtype": "Check",
+		},
 	],
 	onload: function(report) {
 		report.page.add_inner_button(__("Accounts Payable Summary"), function() {
