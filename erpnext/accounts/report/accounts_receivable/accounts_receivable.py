@@ -386,7 +386,7 @@ class ReceivablePayableReport(object):
 			amount_field = ("jea.debit_in_account_currency - jea.credit_in_account_currency"
 				if self.party_type == 'Supplier' else "jea.credit_in_account_currency - jea.debit_in_account_currency")
 		else:
-			amount_field = ("jea.debit - " if self.party_type == 'Supplier' else "jea.credit")
+			amount_field = ("jea.debit" if self.party_type == 'Supplier' else "jea.credit")
 
 		return frappe.db.sql("""
 			select
