@@ -278,6 +278,10 @@ class Subscription(Document):
         invoice.customer = self.customer
         invoice.subscription = self.name
 
+        # Si solo tiene un plan aplicamos esa lista de precios a la factura
+        if len(self.plans) == 1:
+            invoice.selling_price_list = frappe.get_value("Subscription Plan", self.plans[0].plan, 'price_list')
+
         # Subscription is better suited for service items. I won't update `update_stock`
         # for that reason
         items_list = self.get_items_from_plans(self.plans, prorate)
