@@ -76,7 +76,7 @@ def get_price(item_code, price_list, customer_group, company, qty=1):
 
 		if template_item_code and not price:
 			price = frappe.get_all("Item Price", fields=["price_list_rate", "currency"],
-				filters={"price_list": price_list, "item_code": template_item_code})
+				filters={"price_list": price_list, "item_code": template_item_code}, order_by='uom desc, min_qty desc, valid_from desc')
 
 		if price:
 			pricing_rule = get_pricing_rule_for_item(frappe._dict({
