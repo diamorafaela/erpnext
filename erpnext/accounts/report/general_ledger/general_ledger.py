@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors
 # License: GNU General Public License v3. See license.txt
 
@@ -189,6 +190,9 @@ def get_conditions(filters):
 			conditions.append("finance_book in (%(finance_book)s, %(company_fb)s)")
 		else:
 			conditions.append("finance_book in (%(finance_book)s)")
+
+	if filters.get("excluir_asientos_ajuste_inflacion"):
+		conditions.append("remarks != 'Ajuste por Inflación'")
 
 	from frappe.desk.reportview import build_match_conditions
 	match_conditions = build_match_conditions("GL Entry")

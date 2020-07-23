@@ -221,6 +221,11 @@ frappe.query_reports["General Ledger"] = {
 			"fieldname": "include_default_book_entries",
 			"label": __("Include Default Book Entries"),
 			"fieldtype": "Check"
+		},
+		{
+			"fieldname": "excluir_asientos_ajuste_inflacion",
+			"label": __("Excluir asientos de Ajuste por Inflación"),
+			"fieldtype": "Check"
 		}
 	]
 }
