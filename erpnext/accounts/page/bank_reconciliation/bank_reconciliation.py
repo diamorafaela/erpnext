@@ -128,7 +128,7 @@ def check_matching_amount(bank_account, company, transaction):
 		sales_invoices = frappe.db.sql("""
 			SELECT
 				'Sales Invoice' as doctype, si.name, si.customer as party,
-				si.posting_date, sip.amount as paid_amount
+				si.posting_date, sip.amount as paid_amount, si.currency
 			FROM
 				`tabSales Invoice Payment` as sip
 			JOIN
