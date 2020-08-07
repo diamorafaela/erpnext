@@ -143,7 +143,7 @@ def check_matching_amount(bank_account, company, transaction):
 				sip.amount like %s
 			AND
 				si.docstatus = 1
-		""", (bank_account, amount), as_dict=True)
+		""", (bank_account, '%{}%'.format(amount)), as_dict=True)
 	else:
 		sales_invoices = []
 
