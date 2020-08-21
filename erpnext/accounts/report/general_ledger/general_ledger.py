@@ -192,7 +192,7 @@ def get_conditions(filters):
 			conditions.append("finance_book in (%(finance_book)s)")
 
 	if filters.get("excluir_asientos_ajuste_inflacion"):
-		conditions.append("voucher_type != 'Ajuste por Inflación'")
+		conditions.append("remarks != 'Ajuste por Inflación'")
 
 	from frappe.desk.reportview import build_match_conditions
 	match_conditions = build_match_conditions("GL Entry")
