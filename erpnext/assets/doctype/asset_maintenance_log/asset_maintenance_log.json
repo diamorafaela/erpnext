@@ -181,7 +181,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-05-28 20:51:48.238397",
+ "modified": "2020-11-13 10:54:46.118149",
  "modified_by": "Administrator",
  "module": "Assets",
  "name": "Asset Maintenance Log",
@@ -203,6 +203,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Assets",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1,

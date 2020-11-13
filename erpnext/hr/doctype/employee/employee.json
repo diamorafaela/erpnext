@@ -822,7 +822,7 @@
  "idx": 24,
  "image_field": "image",
  "links": [],
- "modified": "2020-10-06 15:58:23.805489",
+ "modified": "2020-11-13 10:54:05.833121",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
@@ -865,6 +865,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "HR",
  "search_fields": "employee_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

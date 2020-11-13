@@ -72,6 +72,19 @@ domains = {
 	'Non Profit': 'erpnext.domains.non_profit',
 	'Retail': 'erpnext.domains.retail',
 	'Services': 'erpnext.domains.services',
+
+	# Diamo Domains
+	'CRM': 'erpnext.domains.crm',
+	'Projects': 'erpnext.domains.projects',
+	'HR': 'erpnext.domains.hr',
+	'Support': 'erpnext.domains.support',
+	'Assets': 'erpnext.domains.assets',
+	'Maintenance': 'erpnext.domains.maintenance',
+	'Integrations': 'erpnext.domains.integrations',
+	'Quality': 'erpnext.domains.quality',
+	'Loan': 'erpnext.domains.loan',
+	'Payroll': 'erpnext.domains.payroll',
+	'Website': 'erpnext.domains.website',
 }
 
 website_generators = ["Item Group", "Item", "BOM", "Sales Partner",

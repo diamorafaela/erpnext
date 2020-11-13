@@ -174,7 +174,7 @@
   }
  ],
  "links": [],
- "modified": "2020-06-10 12:30:15.050785",
+ "modified": "2020-11-13 10:54:38.686714",
  "modified_by": "Administrator",
  "module": "Support",
  "name": "Service Level Agreement",
@@ -205,6 +205,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Support",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

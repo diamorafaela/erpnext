@@ -262,7 +262,7 @@
  "icon": "fa fa-cog",
  "is_submittable": 1,
  "links": [],
- "modified": "2020-06-22 20:06:06.953904",
+ "modified": "2020-11-13 10:55:14.372969",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payroll Entry",
@@ -280,6 +280,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Payroll",
  "sort_field": "modified",
  "sort_order": "DESC"
 }

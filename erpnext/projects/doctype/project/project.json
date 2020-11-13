@@ -446,7 +446,7 @@
  "idx": 29,
  "links": [],
  "max_attachments": 4,
- "modified": "2020-04-08 22:11:14.552615",
+ "modified": "2020-11-13 10:54:01.612959",
  "modified_by": "Administrator",
  "module": "Projects",
  "name": "Project",
@@ -483,6 +483,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Projects",
  "search_fields": "customer, status, priority, is_active",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

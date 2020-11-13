@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "creation": "2018-05-11 00:22:43.695151",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -111,7 +112,8 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2019-11-22 14:09:25.800375",
+ "links": [],
+ "modified": "2020-11-13 10:54:45.290148",
  "modified_by": "Administrator",
  "module": "Assets",
  "name": "Asset Value Adjustment",
@@ -164,6 +166,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Assets",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "asset",

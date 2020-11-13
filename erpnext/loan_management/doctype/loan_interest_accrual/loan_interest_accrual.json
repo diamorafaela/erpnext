@@ -178,7 +178,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-07 05:49:25.448875",
+ "modified": "2020-11-13 10:54:59.497357",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Loan Interest Accrual",
@@ -214,6 +214,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Loan",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

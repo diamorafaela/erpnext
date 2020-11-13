@@ -124,7 +124,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-06-22 19:58:09.964692",
+ "modified": "2020-11-13 10:55:15.010601",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Salary Structure Assignment",
@@ -170,6 +170,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Payroll",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "employee_name",

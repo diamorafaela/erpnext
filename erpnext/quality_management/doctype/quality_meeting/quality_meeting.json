@@ -50,7 +50,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-27 16:36:45.657883",
+ "modified": "2020-11-13 10:54:56.899233",
  "modified_by": "Administrator",
  "module": "Quality Management",
  "name": "Quality Meeting",
@@ -82,6 +82,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Quality",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

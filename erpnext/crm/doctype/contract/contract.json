@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "creation": "2018-04-12 06:32:04.582486",
@@ -247,7 +248,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-03-30 06:56:07.257932",
+ "modified": "2020-11-13 10:53:57.757768",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Contract",
@@ -314,6 +315,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "CRM",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

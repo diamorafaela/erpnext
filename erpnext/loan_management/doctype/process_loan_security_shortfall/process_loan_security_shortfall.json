@@ -30,7 +30,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-01 08:14:05.845161",
+ "modified": "2020-11-13 10:55:06.205863",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Process Loan Security Shortfall",
@@ -61,6 +61,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Loan",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

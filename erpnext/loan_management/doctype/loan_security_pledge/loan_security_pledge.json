@@ -160,7 +160,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-09-04 22:38:19.894488",
+ "modified": "2020-11-13 10:55:04.112212",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Loan Security Pledge",
@@ -196,6 +196,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Loan",
  "search_fields": "applicant",
  "sort_field": "modified",
  "sort_order": "DESC",

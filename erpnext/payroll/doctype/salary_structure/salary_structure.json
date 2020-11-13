@@ -43,23 +43,17 @@
    "label": "Company",
    "options": "Company",
    "remember_last_selected_value": 1,
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "fieldname": "letter_head",
    "fieldtype": "Link",
    "label": "Letter Head",
-   "options": "Letter Head",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Letter Head"
   },
   {
    "fieldname": "column_break1",
    "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1,
    "width": "50%"
   },
   {
@@ -72,9 +66,7 @@
    "oldfieldname": "is_active",
    "oldfieldtype": "Select",
    "options": "\nYes\nNo",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "default": "Monthly",
@@ -82,9 +74,7 @@
    "fieldname": "payroll_frequency",
    "fieldtype": "Select",
    "label": "Payroll Frequency",
-   "options": "\nMonthly\nFortnightly\nBimonthly\nWeekly\nDaily",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "\nMonthly\nFortnightly\nBimonthly\nWeekly\nDaily"
   },
   {
    "default": "No",
@@ -95,62 +85,46 @@
    "no_copy": 1,
    "options": "Yes\nNo",
    "print_hide": 1,
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "time_sheet_earning_detail",
-   "fieldtype": "Section Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Section Break"
   },
   {
    "default": "0",
    "fieldname": "salary_slip_based_on_timesheet",
    "fieldtype": "Check",
-   "label": "Salary Slip Based on Timesheet",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Salary Slip Based on Timesheet"
   },
   {
    "fieldname": "column_break_17",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "description": "Salary Component for timesheet based payroll.",
    "fieldname": "salary_component",
    "fieldtype": "Link",
    "label": "Salary Component",
-   "options": "Salary Component",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Salary Component"
   },
   {
    "fieldname": "hour_rate",
    "fieldtype": "Currency",
    "label": "Hour Rate",
-   "options": "Company:company:default_currency",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Company:company:default_currency"
   },
   {
    "fieldname": "leave_encashment_amount_per_day",
    "fieldtype": "Currency",
    "label": "Leave Encashment Amount Per Day",
-   "options": "Company:company:default_currency",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Company:company:default_currency"
   },
   {
    "fieldname": "max_benefits",
    "fieldtype": "Currency",
    "label": "Max Benefits (Amount)",
-   "options": "Company:company:default_currency",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Company:company:default_currency"
   },
   {
    "description": "Salary breakup based on Earning and Deduction.",
@@ -158,9 +132,7 @@
    "fieldtype": "Section Break",
    "oldfieldname": "earning_deduction",
    "oldfieldtype": "Section Break",
-   "precision": "2",
-   "show_days": 1,
-   "show_seconds": 1
+   "precision": "2"
   },
   {
    "fieldname": "earnings",
@@ -168,9 +140,7 @@
    "label": "Earnings",
    "oldfieldname": "earning_details",
    "oldfieldtype": "Table",
-   "options": "Salary Detail",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Salary Detail"
   },
   {
    "fieldname": "deductions",
@@ -178,22 +148,16 @@
    "label": "Deductions",
    "oldfieldname": "deduction_details",
    "oldfieldtype": "Table",
-   "options": "Salary Detail",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Salary Detail"
   },
   {
    "fieldname": "net_pay_detail",
    "fieldtype": "Section Break",
-   "options": "Simple",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Simple"
   },
   {
    "fieldname": "column_break2",
    "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1,
    "width": "50%"
   },
   {
@@ -204,9 +168,7 @@
    "oldfieldname": "total_earning",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "total_deduction",
@@ -216,9 +178,7 @@
    "oldfieldname": "total_deduction",
    "oldfieldtype": "Currency",
    "options": "Company:company:default_currency",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "net_pay",
@@ -226,38 +186,28 @@
    "hidden": 1,
    "label": "Net Pay",
    "options": "Company:company:default_currency",
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "account",
    "fieldtype": "Section Break",
-   "label": "Account",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Account"
   },
   {
    "fieldname": "mode_of_payment",
    "fieldtype": "Link",
    "label": "Mode of Payment",
-   "options": "Mode of Payment",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Mode of Payment"
   },
   {
    "fieldname": "column_break_28",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "payment_account",
    "fieldtype": "Link",
    "label": "Payment Account",
-   "options": "Account",
-   "show_days": 1,
-   "show_seconds": 1
+   "options": "Account"
   },
   {
    "fieldname": "amended_from",
@@ -266,23 +216,19 @@
    "no_copy": 1,
    "options": "Salary Structure",
    "print_hide": 1,
-   "read_only": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "read_only": 1
   },
   {
    "fieldname": "conditions_and_formula_variable_and_example",
    "fieldtype": "HTML",
-   "label": "Conditions and Formula variable and example",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Conditions and Formula variable and example"
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-06-22 17:07:26.129355",
+ "modified": "2020-11-13 10:55:16.001185",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Salary Structure",
@@ -319,6 +265,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Payroll",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC"

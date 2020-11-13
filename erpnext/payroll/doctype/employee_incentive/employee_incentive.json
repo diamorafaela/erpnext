@@ -74,7 +74,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-06-22 22:42:51.209630",
+ "modified": "2020-11-13 10:55:13.321223",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Employee Incentive",
@@ -116,6 +116,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Payroll",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "employee_name",
