@@ -85,6 +85,7 @@ domains = {
 	'Loan': 'erpnext.domains.loan',
 	'Payroll': 'erpnext.domains.payroll',
 	'Website': 'erpnext.domains.website',
+	'Shopping Cart': 'erpnext.domains.shopping_cart',
 }
 
 website_generators = ["Item Group", "Item", "BOM", "Sales Partner",

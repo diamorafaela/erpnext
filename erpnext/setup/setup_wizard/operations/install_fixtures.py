@@ -44,6 +44,7 @@ def install(country=None):
 		{'doctype': 'Domain', 'domain': 'Loan'},
 		{'doctype': 'Domain', 'domain': 'Payroll'},
 		{'doctype': 'Domain', 'domain': 'Website'},
+		{'doctype': 'Domain', 'domain': 'Shopping Cart'},
 
 		# ensure at least an empty Address Template exists for this Country
 		{'doctype':"Address Template", "country": country},
