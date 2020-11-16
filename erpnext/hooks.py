@@ -73,7 +73,7 @@ domains = {
 	'Retail': 'erpnext.domains.retail',
 	'Services': 'erpnext.domains.services',
 
-	# Diamo Domains
+	# Dominios Modulo Diamo
 	'CRM': 'erpnext.domains.crm',
 	'Projects': 'erpnext.domains.projects',
 	'HR': 'erpnext.domains.hr',
@@ -86,6 +86,20 @@ domains = {
 	'Payroll': 'erpnext.domains.payroll',
 	'Website': 'erpnext.domains.website',
 	'Shopping Cart': 'erpnext.domains.shopping_cart',
+
+	# Dominios DocTypes Diamo
+	'Contabilidad Avanzada': 'erpnext.domains.contabilidad_avanzada',
+	'Suscripciones': 'erpnext.domains.suscripciones',
+	'Hoja de Ruta': 'erpnext.domains.hoja_de_ruta',
+	'Numero de Serie y Lote': 'erpnext.domains.numero_serie_lote',
+	'Evaluacion de Proveedores': 'erpnext.domains.evaluacion_proveedores',
+	'Vendedores y Partners': 'erpnext.domains.vendedores_partners',
+	'Campañas': 'erpnext.domains.campaigns',
+	'SLA y RMA': 'erpnext.domains.sla_rma',
+	'Retail Avanzado': 'erpnext.domains.retail_avanzado',
+	'Servicios Google': 'erpnext.domains.servicios_google',
+	'HR Asistencia y Vacaciones': 'erpnext.domains.hr_asistencia_vacaciones',
+	'HR Reclutamiento, Capacitacion y Gastos': 'erpnext.domains.hr_reclutamiento_capacitacion_gastos',
 }
 
 website_generators = ["Item Group", "Item", "BOM", "Sales Partner",

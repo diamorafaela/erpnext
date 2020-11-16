@@ -101,7 +101,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-13 10:54:33.755627",
+ "modified": "2020-11-13 12:14:50.164991",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Shift Assignment",
@@ -144,7 +144,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "HR",
+ "restrict_to_domain": "HR Asistencia y Vacaciones",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "employee_name",

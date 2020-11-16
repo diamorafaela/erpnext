@@ -32,7 +32,7 @@ def install(country=None):
 		{ 'doctype': 'Domain', 'domain': 'Agriculture'},
 		{ 'doctype': 'Domain', 'domain': 'Non Profit'},
 
-		# Dominios Diamo
+		# Dominios Modulo Diamo
 		{'doctype': 'Domain', 'domain': 'CRM'},
 		{'doctype': 'Domain', 'domain': 'Projects'},
 		{'doctype': 'Domain', 'domain': 'HR'},
@@ -45,6 +45,21 @@ def install(country=None):
 		{'doctype': 'Domain', 'domain': 'Payroll'},
 		{'doctype': 'Domain', 'domain': 'Website'},
 		{'doctype': 'Domain', 'domain': 'Shopping Cart'},
+
+		# Dominios DocTypes Diamo
+		{'doctype': 'Domain', 'domain': 'Contabilidad Avanzada'},
+		{'doctype': 'Domain', 'domain': 'Suscripciones'},
+		{'doctype': 'Domain', 'domain': 'Hoja de Ruta'},
+		{'doctype': 'Domain', 'domain': 'Numero de Serie y Lote'},
+		{'doctype': 'Domain', 'domain': 'Evaluacion de Proveedores'},
+		{'doctype': 'Domain', 'domain': 'Vendedores y Partners'},
+		{'doctype': 'Domain', 'domain': 'Campaigns'},
+		{'doctype': 'Domain', 'domain': 'SLA y RMA'},
+		{'doctype': 'Domain', 'domain': 'Retail Avanzado'},
+		{'doctype': 'Domain', 'domain': 'Servicios Google'},
+		{'doctype': 'Domain', 'domain': 'HR Asistencia y Vacaciones'},
+		{'doctype': 'Domain', 'domain': 'HR Reclutamiento, Capacitacion y Gastos'},
+
 
 		# ensure at least an empty Address Template exists for this Country
 		{'doctype':"Address Template", "country": country},

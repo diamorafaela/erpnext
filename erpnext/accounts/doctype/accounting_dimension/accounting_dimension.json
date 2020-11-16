@@ -48,7 +48,7 @@
   }
  ],
  "links": [],
- "modified": "2020-03-22 20:34:39.805728",
+ "modified": "2020-11-13 12:03:31.399740",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Accounting Dimension",
@@ -79,6 +79,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Contabilidad Avanzada",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

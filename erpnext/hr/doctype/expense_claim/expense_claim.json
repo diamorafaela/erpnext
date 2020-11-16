@@ -371,7 +371,7 @@
  "idx": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-13 10:54:29.825361",
+ "modified": "2020-11-13 12:15:01.236218",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Expense Claim",
@@ -432,7 +432,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "HR",
+ "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
  "search_fields": "employee,employee_name",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

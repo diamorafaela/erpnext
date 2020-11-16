@@ -214,7 +214,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-13 10:55:05.443971",
+ "modified": "2020-11-13 12:14:55.694715",
  "modified_by": "Administrator",
  "module": "Loan Management",
  "name": "Loan Application",
@@ -270,7 +270,7 @@
    "share": 1
   }
  ],
- "restrict_to_domain": "Loan",
+ "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
  "search_fields": "applicant_type, applicant, loan_type, loan_amount",
  "sort_field": "modified",
  "sort_order": "DESC",

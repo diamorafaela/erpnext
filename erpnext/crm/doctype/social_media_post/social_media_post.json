@@ -141,7 +141,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-11-13 10:53:54.068800",
+ "modified": "2020-11-13 12:03:55.735300",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Social Media Post",
@@ -190,7 +190,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "CRM",
+ "restrict_to_domain": "Campaigns",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

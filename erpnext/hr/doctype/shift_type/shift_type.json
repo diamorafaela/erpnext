@@ -160,7 +160,7 @@
   }
  ],
  "links": [],
- "modified": "2020-11-13 10:54:27.093237",
+ "modified": "2020-11-13 12:14:52.545513",
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Shift Type",
@@ -200,7 +200,7 @@
   }
  ],
  "quick_entry": 1,
- "restrict_to_domain": "HR",
+ "restrict_to_domain": "HR Asistencia y Vacaciones",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

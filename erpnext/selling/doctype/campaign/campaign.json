@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "naming_series:",
@@ -65,7 +66,8 @@
  ],
  "icon": "fa fa-bullhorn",
  "idx": 1,
- "modified": "2019-07-22 12:03:39.832342",
+ "links": [],
+ "modified": "2020-11-13 12:03:57.154614",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Campaign",
@@ -104,6 +106,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Campaigns",
  "sort_field": "modified",
  "sort_order": "DESC"
 }
