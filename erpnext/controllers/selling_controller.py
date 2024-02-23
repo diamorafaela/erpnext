@@ -62,11 +62,15 @@ class SellingController(StockController):
 		elif self.doctype == "Opportunity" and self.party_name:
 			if self.opportunity_from == "Customer":
 				customer = self.party_name
+			elif self.opportunity_from == "Issue":
+				lead = None
 			else:
 				lead = self.party_name
 		elif self.doctype == "Quotation" and self.party_name:
 			if self.quotation_to == "Customer":
 				customer = self.party_name
+			elif self.quotation_to == "Issue":
+				lead = None
 			else:
 				lead = self.party_name
 
