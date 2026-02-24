@@ -140,8 +140,8 @@ frappe.query_reports["General Ledger"] = {
 				var parties = frappe.query_report.get_filter_value('party');
 				if(!party_type) return;
 
-				const values = parties.split(/\s*,\s*/).filter(d => d);
-				const txt = parties.match(/[^,\s*]*$/)[0] || '';
+				const values = parties.split(/\n/).filter(d => d);
+				const txt = parties.match(/[^\n]*$/)[0] || '';
 				let data = [];
 
 				frappe.call({
@@ -165,7 +165,7 @@ frappe.query_reports["General Ledger"] = {
 			on_change: function() {
 				var party_type = frappe.query_report.get_filter_value('party_type');
 				var parties = frappe.query_report.get_filter_value('party');
-				const values = parties.split(/\s*,\s*/).filter(d => d);
+				const values = parties.split(/\n/).filter(d => d);
 
 				if(!party_type || !parties || values.length>1) {
 					frappe.query_report.set_filter_value('party_name', "");

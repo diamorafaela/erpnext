@@ -28,7 +28,7 @@ def execute(filters=None):
 
 	if filters.get('party'):
 		parties = cstr(filters.get("party")).strip()
-		filters.party = [d.strip() for d in parties.split(',') if d]
+		filters.party = [d.strip() for d in parties.split('\n') if d]
 
 	validate_filters(filters, account_details)
 
